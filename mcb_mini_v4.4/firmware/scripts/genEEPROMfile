@@ -12,8 +12,8 @@ if len(sys.argv) < 2:
 	sys.exit(1)
 
 id = int(sys.argv[1])
-if id < 0 or id > 126:
-	print "Error, id does not satisfy (0 <= id <= 126)"
+if id < 0 or id >= 256:
+	print "Error, id does not satisfy (0 <= id < 256)"
 	sys.exit(1)
 
 print "id = "+str(id)

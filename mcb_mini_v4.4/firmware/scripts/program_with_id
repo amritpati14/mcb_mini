@@ -1,8 +1,8 @@
 #!/bin/sh
 
-if [ "$#" -lt "1" ]
-then
-    echo "Please pass in the desired board ID";
+if [ "$#" -lt "1" ] 
+then 
+    echo "Please pass in the desired board ID";    
     exit
 fi
 
@@ -10,7 +10,6 @@ fi
 cd ..
 make clean
 make
-
 rc=$?
 if [[ $rc != 0 ]] ; then
 	echo "Compiling firmware exited with ERROR"
@@ -20,7 +19,7 @@ fi
 cd scripts
 
 # Flash the firmware
-avrdude -V -p m168 -P usb -c avrispmkII -U flash:w:../mcb_mini.hex -B 1
+avrdude -p m168 -P usb -c avrispmkII -U flash:w:../mcb_mini.hex
 rc=$?
 if [[ $rc != 0 ]] ; then
 	echo "Flashing firmware exited with ERROR"
